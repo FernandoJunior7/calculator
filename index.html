@@ -4,16 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
 </head>
 <body>
   <div id="container">
-    <div id="display"></div>
+    <div id="display">
+      <div id="operation-history">7x3</div>
+      <div id="result">21</div>
+    </div>
     <div id="buttons-container">
       <div class="row">
         <button id="clear">AC</button>
         <button id="erase">Backspace</button>
-        <button id="divide">/</button>
+        <button id="divide" class="operation">/</button>
       </div>
       <div class="row">
         <button class="number">7</button>
@@ -34,9 +38,9 @@
         <button class="operation">+</button>
       </div>
       <div class="row">
-        <button class="number">0</button>
+        <button id="zero" class="number">0</button>
         <button id="point">.</button>
-        <button id="equal">=</button>
+        <button id="equal" class="operation">=</button>
       </div>
     </div>
   </div>
