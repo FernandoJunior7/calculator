@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
-</head>
-<body>
-  <div id="container">
-    <div id="display">
-      <div id="operation-history">7x3</div>
-      <div id="result">21</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="display">
+        <div id="operation-history">0</div>
+        <div id="result">0</div>
+      </div>
+      <div id="buttons-container">
+        <div class="row">
+          <button id="clear">AC</button>
+          <button id="erase">Backspace</button>
+          <button id="divide" class="operation">/</button>
+        </div>
+        <div class="row">
+          <button class="number">7</button>
+          <button class="number">8</button>
+          <button class="number">9</button>
+          <button id="multiply" class="operation">x</button>
+        </div>
+        <div class="row">
+          <button class="number">4</button>
+          <button class="number">5</button>
+          <button class="number">6</button>
+          <button id="subtract" class="operation">-</button>
+        </div>
+        <div class="row">
+          <button class="number">1</button>
+          <button class="number">2</button>
+          <button class="number">3</button>
+          <button id="add" class="operation">+</button>
+        </div>
+        <div class="row">
+          <button id="zero" class="number">0</button>
+          <button id="point">.</button>
+          <button id="equal" class="operation">=</button>
+        </div>
+      </div>
     </div>
-    <div id="buttons-container">
-      <div class="row">
-        <button id="clear">AC</button>
-        <button id="erase">Backspace</button>
-        <button id="divide" class="operation">/</button>
-      </div>
-      <div class="row">
-        <button class="number">7</button>
-        <button class="number">8</button>
-        <button class="number">9</button>
-        <button id="multiply" class="operation">X</button>
-      </div>
-      <div class="row">
-        <button class="number">4</button>
-        <button class="number">5</button>
-        <button class="number">6</button>
-        <button id="subtract" class="operation">-</button>
-      </div>
-      <div class="row">
-        <button class="number">1</button>
-        <button class="number">2</button>
-        <button class="number">3</button>
-        <button id="add" class="operation">+</button>
-      </div>
-      <div class="row">
-        <button id="zero" class="number">0</button>
-        <button id="point">.</button>
-        <button id="equal" class="operation">=</button>
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
