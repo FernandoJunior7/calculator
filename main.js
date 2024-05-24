@@ -9,12 +9,13 @@ const operationBtns = Array.from(
 const pointBtn = document.querySelector("#point");
 const equalBtn = document.querySelector("#equal");
 const clearBtn = document.querySelector("#clear");
+const eraseBtn = document.querySelector("#erase");
 
 const operationsFunctions = {
   add: () => Number(n1) + Number(n2),
   subtract: () => n1 - n2,
   multiply: () => n1 * n2,
-  divide: () => n1 * n2,
+  divide: () => n1 / n2,
 };
 
 let currentNumber = null;
@@ -36,7 +37,10 @@ equalBtn.addEventListener("click", doOperation);
 
 clearBtn.addEventListener("click", reset);
 
+eraseBtn.addEventListener("click", erase);
+
 function doOperation() {
+  console.log(operation);
   n2 = currentNumber;
   if (isFirstNumberNull() || isOperationNull() || isSecondNumberNull()) {
     return;
@@ -108,4 +112,31 @@ function reset() {
 
   equationDisplay.textContent = 0;
   resultDisplay.textContent = 0;
+}
+
+function erase() {
+  if (equationDisplay.textContent.length === 1) {
+    reset();
+    return;
+  }
+
+  const equationWithNoSpaces = Array.from(equation).filter(
+    (item) => item !== " "
+  );
+  const lastChar = equationWithNoSpaces[equationWithNoSpaces.length - 1];
+
+  if (Number(lastChar) !== Number(lastChar) && lastChar !== ".") {
+    operation = null;
+    equation = equationWithNoSpaces
+      .filter((item) => Number(item) === Number(item) || item === ".")
+      .join("");
+    currentNumber = equation;
+    n1 = null;
+    updateDisplay();
+    return;
+  }
+
+  equation = String(equation).slice(0, equation.length - 1);
+  currentNumber = String(currentNumber).slice(0, currentNumber.length - 1);
+  updateDisplay();
 }
