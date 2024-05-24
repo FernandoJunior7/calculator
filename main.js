@@ -8,7 +8,7 @@ const operationBtns = Array.from(
 const pointBtn = document.querySelector("#point");
 
 let currentNumber = 0;
-let n1;
+let n1 = 0;
 let equation = 0;
 let operation = null;
 
@@ -23,10 +23,13 @@ operationBtns.forEach((operationBtn) => {
 pointBtn.addEventListener("click", registerPoint);
 
 function registerNumber(event) {
-  currentNumber === 0
+  isCurrentNumberValid()
     ? (currentNumber = Number(event.target.textContent))
     : (currentNumber += event.target.textContent);
-  equation = currentNumber;
+
+  isFirstNumberValid()
+    ? (equation = currentNumber)
+    : (equation += event.target.textContent);
   updateDisplay();
 }
 
@@ -38,6 +41,7 @@ function registerOperation(event) {
   operation = event.target.id;
   equation += ` ${event.target.textContent} `;
   updateDisplay();
+  currentNumber = 0;
 }
 
 function registerPoint() {
@@ -45,7 +49,16 @@ function registerPoint() {
     return;
   }
   currentNumber += pointBtn.textContent;
+  equation += pointBtn.textContent;
   updateDisplay();
+}
+
+function isFirstNumberValid() {
+  return n1 === 0;
+}
+
+function isCurrentNumberValid() {
+  return currentNumber === 0;
 }
 
 function updateDisplay() {
