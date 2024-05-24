@@ -8,6 +8,7 @@ const operationBtns = Array.from(
 
 const pointBtn = document.querySelector("#point");
 const equalBtn = document.querySelector("#equal");
+const clearBtn = document.querySelector("#clear");
 
 const operationsFunctions = {
   add: () => Number(n1) + Number(n2),
@@ -32,6 +33,8 @@ operationBtns.forEach((operationBtn) => {
 pointBtn.addEventListener("click", registerPoint);
 
 equalBtn.addEventListener("click", doOperation);
+
+clearBtn.addEventListener("click", reset);
 
 function doOperation() {
   n2 = currentNumber;
@@ -95,4 +98,14 @@ function isOperationNull() {
 function updateDisplay() {
   equationDisplay.textContent = equation;
   resultDisplay.textContent = currentNumber;
+}
+
+function reset() {
+  n1 = null;
+  operation = null;
+  currentNumber = null;
+  equation = null;
+
+  equationDisplay.textContent = 0;
+  resultDisplay.textContent = 0;
 }
