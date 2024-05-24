@@ -38,7 +38,7 @@ body {
 button {
   border: none;
   border-right: 1px solid var(--bg-color);
-  padding: 2rem;
+  padding: 4rem;
 
   background-color: var(--btn-bg-color);
   color: var(--color);
@@ -61,31 +61,37 @@ button:hover {
 #container {
   background-color: var(--bg-color);
 
+  border: 12px solid #333;
   border-radius: 0.8rem;
 
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
 }
 
 /* DISPLAY */
 
 #display {
-  padding: 1rem;
+  padding: 1rem 2rem;
   text-align: right;
 
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+
+  border: 10px solid var(--color);
 }
 
 #equation {
-  font-size: 1.2rem;
+  font-size: 2.4rem;
   font-style: italic;
   color: var(--operation-color);
 }
 
 #result {
-  font-size: 1.8rem;
+  font-size: 3.6rem;
   color: var(--color);
 }
 
@@ -124,6 +130,13 @@ button:hover {
 #erase,
 #zero {
   width: 50%;
+}
+
+#erase {
+  display: flex;
+  gap: 0.4rem;
+
+  text-transform: uppercase;
 }
 
 .operation,
