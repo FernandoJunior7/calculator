@@ -5,7 +5,16 @@ const numberBtns = document.querySelectorAll(".number");
 const operationBtns = Array.from(
   document.querySelectorAll(".operation")
 ).filter((operation) => operation.id !== "equal");
+
 const pointBtn = document.querySelector("#point");
+const equalBtn = document.querySelector("#equal");
+
+const operationsFunctions = {
+  add: () => Number(n1) + Number(n2),
+  subtract: () => n1 - n2,
+  multiply: () => n1 * n2,
+  divide: () => n1 * n2,
+};
 
 let currentNumber = null;
 let n1 = null;
@@ -22,6 +31,19 @@ operationBtns.forEach((operationBtn) => {
 
 pointBtn.addEventListener("click", registerPoint);
 
+equalBtn.addEventListener("click", doOperation);
+
+function doOperation() {
+  n2 = currentNumber;
+  if (isFirstNumberNull() || isOperationNull() || isSecondNumberNull()) {
+    return;
+  }
+
+  currentNumber = operationsFunctions[operation]();
+  equation = currentNumber;
+  updateDisplay();
+}
+
 function registerNumber(event) {
   isCurrentNumberNull()
     ? (currentNumber = Number(event.target.textContent))
@@ -35,7 +57,7 @@ function registerNumber(event) {
 }
 
 function registerOperation(event) {
-  if (operation !== null || isCurrentNumberNull()) {
+  if (!isOperationNull() || isCurrentNumberNull()) {
     return;
   }
   n1 = currentNumber;
@@ -58,8 +80,16 @@ function isFirstNumberNull() {
   return n1 === null;
 }
 
+function isSecondNumberNull() {
+  return n2 === null;
+}
+
 function isCurrentNumberNull() {
   return currentNumber === null;
+}
+
+function isOperationNull() {
+  return operation === null;
 }
 
 function updateDisplay() {
