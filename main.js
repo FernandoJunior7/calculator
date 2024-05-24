@@ -2,7 +2,7 @@ const numberBtns = document.querySelectorAll(".number");
 const equationDisplay = document.querySelector("#equation");
 const resultDisplay = document.querySelector("#result");
 
-let currentNumber;
+let currentNumber = 0;
 let equation;
 
 numberBtns.forEach((numberBtn) => {
@@ -10,7 +10,9 @@ numberBtns.forEach((numberBtn) => {
 });
 
 function registerNumber(event) {
-  currentNumber = event.target.textContent;
+  currentNumber === 0
+    ? (currentNumber = Number(event.target.textContent))
+    : (currentNumber += event.target.textContent);
   updateDisplay(currentNumber);
 }
 
